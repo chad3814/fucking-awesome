@@ -49,14 +49,14 @@ function updateVideoList() {
         const videoLink = document.createElement("a");
         videoLink.href = video.video_url;
         videoLink.textContent = "Video";
-        videoLink.target = "_blank";
+        videoLink.download = true;
         downloadDiv.appendChild(videoLink);
         
         if (video.vtt_url) {
             const captionsLink = document.createElement("a");
             captionsLink.href = video.vtt_url;
             captionsLink.textContent = "Captions";
-            captionsLink.target = "_blank";
+            captionsLink.download = true;
             downloadDiv.appendChild(captionsLink);
         }
 
