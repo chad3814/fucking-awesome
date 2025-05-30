@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Fucking Awesome",
+  "version": "1.0",
+  "description": "A browser extensions for Chrome and Firefox to grab video urls from fawesome.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "webRequest",
+    "webRequestBlocking",
+    "webRequestFilterResponse"
+  ],
+  "host_permissions": [
+    "https://fawesome.tv/"
+  ],
+  "background": {
+    "scripts": ["src/background.js"]
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "64": "icons/icon64.png",
+      "128": "icons/icon128.png",
+      "256": "icons/icon256.png",
+      "512": "icons/icon512.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"]
+    }
+  ],
+  "icons": {
+      "64": "icons/icon64.png",
+      "128": "icons/icon128.png",
+      "256": "icons/icon256.png",
+      "512": "icons/icon512.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/popup/popup.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{803D055E-79AE-4FEE-9659-F0322175124E}"
+    }
+  }
+}

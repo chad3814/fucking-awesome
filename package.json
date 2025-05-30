@@ -1,0 +1,23 @@
+{
+  "name": "fucking-awesome",
+  "version": "1.0.0",
+  "description": "A browser extensions for Chrome and Firefox for use on fawesome.",
+  "main": "src/background.js",
+  "scripts": {
+    "build": "echo 'Building the extension...'",
+    "test": "echo 'Running tests...'",
+    "dev": "web-ext run --firefox --verbose --devtools",
+    "lint": "web-ext lint"
+  },
+  "keywords": [
+    "browser",
+    "extension",
+    "chrome",
+    "firefox"
+  ],
+  "author": "Chad Walker",
+  "license": "MIT",
+  "devDependencies": {
+    "web-ext": "^8.7.1"
+  }
+}
