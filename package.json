@@ -6,7 +6,7 @@
   "scripts": {
     "build": "echo 'Building the extension...'",
     "test": "echo 'Running tests...'",
-    "dev": "web-ext run --firefox --verbose --devtools",
+    "dev": "web-ext run --firefox --verbose --devtools -u 'https://fawesome.tv/'",
     "lint": "web-ext lint"
   },
   "keywords": [

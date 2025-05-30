@@ -1,6 +1,14 @@
 const videos = new Map();
 
+const searchTypes = ['new-qid', 'nodeid', 'similar'];
+
 function listener(details) {
+    console.log("Request details:", details);
+    const url = new URL(details.url);
+    const params = url.searchParams;
+    if (!params?.has('searchType') || !searchTypes.includes(params.get('searchType'))) {
+        return;
+    }
     const filter = browser.webRequest.filterResponseData(details.requestId);
     const decoder = new TextDecoder("utf-8");
     let data = '';
@@ -14,8 +22,13 @@ function listener(details) {
         console.log("Filter stopped.");
         filter.disconnect();
 
-        console.log("recipes:", data);
-        for (const video of JSON.parse(data).results) {
+        data = JSON.parse(data);
+        console.log("Received data:", data);
+        for (const video of data.results) {
+            if (video.drm !== 0) {
+                console.log(`Skipping video ${video.ttile} due to DRM.`);
+                continue;
+            }
             const release_year = video.release_date ? video.release_date.match(/\d\d\d\d/)[0] : '';
             videos.set(video.id, {
                 image: video.main_picture,
