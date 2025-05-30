@@ -1,11 +1,9 @@
-# Browser Extension Template
-
-This project is a template for creating browser extensions compatible with both Chrome and Firefox. It includes the necessary files and structure to get started quickly.
+# Fucking Awesome Browser Extension
 
 ## Project Structure
 
 ```text
-browser-extension-template
+fucking-awesome
 ├── src
 │   ├── background.js       # Background script for managing events and tasks
 │   ├── content.js          # Content script for interacting with web pages
